@@ -20,6 +20,8 @@ declare var $: any;
 })
 export class SignupComponent implements OnInit{
   loader:boolean =false;
+  pageswap:boolean =true;
+
   userSignup!: FormGroup;
   constructor(private _fb:FormBuilder, 
     private _router:Router, 
