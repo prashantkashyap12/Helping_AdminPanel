@@ -20,12 +20,9 @@ declare var $: any;
 })
 export class SignupComponent implements OnInit{
   loader:boolean =false;
-<<<<<<< HEAD
-  pageswap:boolean =true;
+  pageswap:boolean =false;
 
-=======
   isAdmin:boolean =false;
->>>>>>> d4e88d9 (login by otp)
   userSignup!: FormGroup;
   constructor(private _fb:FormBuilder, 
     private _router:Router, 

@@ -14,8 +14,6 @@
                     </div>
                 </div>
             </div>
-            <!-- End Overview Area -->
-
             <!-- Start Form Area -->
             <div class="col-span-full lg:col-span-6 w-full lg:max-w-[600px]">
                 <div class="border border-form dark:border-dark-border p-5 md:p-10 rounded-20 md:rounded-30 dk-theme-card-square">
@@ -30,19 +28,11 @@
                             <label for="email" class="form-label">Email</label>
                             <input type="email" id="email" formControlName="email" placeholder="Enter Registered E-mail" required class="form-input px-4 py-3.5 rounded-lg">
                         </div>
-<<<<<<< HEAD
-                        <div class="flex items-center justify-between mt-3 mb-7">
-                            <div class="flex items-center gap-1 select-none">
-                                <input type="checkbox" name="remember-me" id="rememberMe">
-                                <label for="rememberMe" class="font-spline_sans text-sm leading-none text-gray-900 dark:text-dark-text cursor-pointer">Remember Me</label>
-                            </div>
-                            <a (click)="routForgt()" class="text-xs leading-none text-primary-500 font-semibold">Forgot password?</a>
+                        <div class="mb-2.5">
+                            <label for="otp" class="form-label">OTP</label>
+                            <input type="text" id="otp" formControlName="otp" placeholder="Enter OTP" required class="form-input px-4 py-3.5 rounded-lg">
                         </div>
-                        <!-- Submit Button -->
-                        <button (click)="onSubmit()" class="btn b-solid btn-primary-solid w-full dk-theme-card-square">Sign In</button>
-=======
                         <button (click)="onSubmit()" class="btn b-solid btn-primary-solid w-full dk-theme-card-square">Login via OTP</button>
->>>>>>> d4e88d9 (login by otp)
                     </form>
                     <div class="font-spline_sans text-gray-900 dark:text-dark-text leading-none text-center my-4">OR</div>
                     <div class="text-gray-900 dark:text-dark-text font-medium leading-none mt-5">

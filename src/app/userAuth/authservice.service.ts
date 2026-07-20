@@ -24,7 +24,7 @@ export class AuthserviceService {
   }
 
   signIn(model:any):Observable<any>{
-    let url = this.Url+"Signin";
+    let url = this.Url+"LoginOTP";
     return this.http.post(url, model);
   }
 

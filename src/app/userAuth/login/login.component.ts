@@ -25,13 +25,14 @@ export class LoginComponent implements OnInit{
 
   Init(){
     this.signupForm = this._fb.group({
-      email:['', Validators.email],
+      otp:['', Validators.required],
     });
   }
-
   Ismodel(){
     return {
       email: this.signupForm.value.email ?? '',
+      otp: this.signupForm.value.otp ?? '',
+
     }
   }
   routForgt(){
