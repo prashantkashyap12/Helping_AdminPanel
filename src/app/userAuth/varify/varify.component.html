@@ -1,27 +1,9 @@
-<!-- <div class="container-fluid">
-    <div class="row bg-light h-100 ">
-        <div class="col-md-12">
-            <div class="min-vh-100 d-flex flex-column justify-content-center align-items-center">
-                <h3>Verify</h3>
-                <form *ngIf="userVerify" [formGroup]="userVerify" class="d-flex flex-column">
-                    <input autocomplete="on" maxlength="60" type="text" id="email" formControlName="email" [value]="email" readonly>
-                    <input autocomplete="on" maxlength="60" type="password" id="name" formControlName="password" placeholder="Enter New Password" [value]="password">
-                    <input autocomplete="on" maxlength="60" type="text" placeholder="Enter OTP" formControlName="otp">
-                    <span>OTP Valid - {{minStr}}:{{secStr}}</span>
-                    <button (click)="onSubmit()" class="btn btn-primary">Verify</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div> -->
 
-
-
-    <!-- loader -->
-    <div *ngIf="loader" class="w-screen h-screen flex-center bg-white dark:bg-dark-card fixed inset-0 z-[9999]">
-        <img src="assets/pre-loader/bar-loader.gif" alt="loader">
-    </div>
-    <!-- loader -->
+<!-- loader -->
+<div *ngIf="loader" class="w-screen h-screen flex-center bg-white dark:bg-dark-card fixed inset-0 z-[9999]">
+    <img src="assets/pre-loader/bar-loader.gif" alt="loader">
+</div>
+<!-- loader -->
 
 
 <!-- Start Main Content -->
@@ -52,25 +34,12 @@
                             <label for="email" class="form-label">Email</label>
                             <input type="email"  autocomplete="off" formControlName="email" [value]="email" readonly class="form-input px-4 py-3.5 rounded-lg">
                         </div>
-                        @if(tempPwd){
-                            <div class="mb-7">
-                                <label for="email" class="form-label">Password</label>
-                                <input type="password" formControlName="password" placeholder="Set your password / pin" autocomplete="off" [value]="password" readonly class="form-input px-4 py-3.5 rounded-lg">
-                            </div>
-                        }@else{
-                            <div class="mb-7">
-                                <label for="email" class="form-label">Password</label>
-                                <input type="password" formControlName="password" placeholder="Set your password / pin" autocomplete="off" [value]="password" maxlength="10" required  class="form-input px-4 py-3.5 rounded-lg">
-                            </div>
-                        }
-
-    
-                        <div class="m-2">
-                            <span>OTP Valid - {{minStr}}:{{secStr}}</span>
+                       
+                        <div class="m-2 mb-2">
+                            <span class="form-label">OTP Valid - {{minStr}}:{{secStr}}</span>
                         </div>
 
                         <div class="mb-7">
-                            <label for="email" class="form-label">OTP</label>
                             <input type="text"  autocomplete="off" placeholder="Enter OTP" formControlName="otp" maxlength="6" required class="form-input px-4 py-3.5 rounded-lg">
                         </div>
                         <!-- Submit Button -->

@@ -28,21 +28,12 @@ export class VarifyComponent implements OnInit {
   ){}
 
   email:any;
-  password:any;
 
   tempPwd:any;
   ngOnInit(){
     this.TimeCoutner();
-    // this.password == "000000" ? this.tempPwd = true : this.tempPwd = false;
     if (isPlatformBrowser(this.platformId)) {
       this.email = sessionStorage.getItem('email');
-      this.password = sessionStorage.getItem('password');
-      this.password = this.password == "000000" ? "" : this.password; 
-      if(this.password == ""){
-        this.tempPwd = false;
-      }else{
-        this.tempPwd = true;
-      }
     }
     this.initForm();  
   }
@@ -50,7 +41,6 @@ export class VarifyComponent implements OnInit {
   initForm(){
     this.userVerify = this._fb.group({
       email: [this.email, Validators.required,],
-      password: [this.password, Validators.required],
       otp: ['', Validators.required]
     })
 
@@ -81,7 +71,6 @@ export class VarifyComponent implements OnInit {
   datamodel(){
     return {
       email :this.userVerify.value.email ?? '',
-      password : this.userVerify.value.password ?? '',
       otp:this.userVerify.value.otp ?? ''
     };
   }
@@ -97,7 +86,6 @@ export class VarifyComponent implements OnInit {
     this._auth.varify(model).subscribe(res=>{
       if(res.state==true){
         this.loader = false;
-        alert("Password set successfully")
         this._router.navigate(['/login']);
       }else{
         this.loader = false;

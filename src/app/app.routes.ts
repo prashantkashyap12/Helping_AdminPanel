@@ -36,6 +36,7 @@ export const routes: Routes = [
     {path:'signup', component:SignupComponent},
     {path:'verify', component:VarifyComponent},
     {path:'forget', component:ForgetComponent},
+    
     // Admin Web - Done
     {path:'blog', component:BlogComponent},                      
     {path:'BlogDetails', component:BlogDetailsComponent},      

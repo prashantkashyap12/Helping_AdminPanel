@@ -20,8 +20,12 @@ declare var $: any;
 })
 export class SignupComponent implements OnInit{
   loader:boolean =false;
+<<<<<<< HEAD
   pageswap:boolean =true;
 
+=======
+  isAdmin:boolean =false;
+>>>>>>> d4e88d9 (login by otp)
   userSignup!: FormGroup;
   constructor(private _fb:FormBuilder, 
     private _router:Router, 
@@ -29,15 +33,10 @@ export class SignupComponent implements OnInit{
    ){}
   ngOnInit() {
     this.initForm();
+    this.displaySize();
   }
 
   select1:any = "selected";
-
-  // PwdValidator(form: FormGroup) {
-  //   const pwd = form.get('password')?.value;
-  //   const rePwd = form.get('rePassword')?.value;
-  //   return pwd === rePwd ? null : { mismatch: true };
-  // }
   
   // Define Form Controller
   initForm(){
@@ -45,10 +44,8 @@ export class SignupComponent implements OnInit{
       date: [moment(new Date()).format("DD-MM-YYYY")],
       name:['', [Validators.required]],
       email:['', [Validators.required, Validators.email]],
-      contact: ['', [Validators.required, Validators.maxLength(10)]], //Validators.pattern(/^[0-9]{10}$/)]
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      // password: ['', [Validators.required, Validators.minLength(6), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$')]],
-      role:['user', [Validators.required]]
+      contact: ['', [Validators.required, Validators.maxLength(10)]],
+      reffrence: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
@@ -59,23 +56,21 @@ export class SignupComponent implements OnInit{
       name: this.userSignup.value.name ?? '',
       email: this.userSignup.value.email ?? '',
       contact: this.userSignup.value.contact ?? '',
-      password: this.userSignup.value.password ?? '',
-      role: this.userSignup.value.role ?? '',
+      reffrence: this.userSignup.value.reffrence ?? '',
     };
   }
 
   onSubmit(){
     this.loader = true;
     const model= this.datamodel();  // validation
+    console.log(this.datamodel());
     this._auth.signup(model).subscribe(
       res=>{ 
        if(res.state == true){
-        // console.log(res)
         this.loader = false;
         sessionStorage.setItem('email', this.userSignup.value.email);
-        sessionStorage.setItem('password', this.userSignup.value.password);
         sessionStorage.setItem('user', this.userSignup.value.name);
-        sessionStorage.setItem('role', this.userSignup.value.role);
+        sessionStorage.setItem('reffrence', this.userSignup.value.reffrence);
         this._router.navigate(['/verify']);
        }else{
         this.loader = false;
@@ -84,11 +79,22 @@ export class SignupComponent implements OnInit{
       });
   }
 
+  
   // signIn Btn
   signin(){
     this._router.navigate(['/login']);
   }
-  test(){
-    this._router.navigate(['/verify'])
+  isAdminBtn(){
+    this.isAdmin = !this.isAdmin
   }
+
+    isMobile=true;
+    displaySize(){
+    let displaySize =  screen.availWidth;
+      if(displaySize<547){
+        this.isMobile=true;
+      }else{
+        this.isMobile=false;
+      }
+    }
 }

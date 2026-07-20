@@ -26,14 +26,12 @@ export class LoginComponent implements OnInit{
   Init(){
     this.signupForm = this._fb.group({
       email:['', Validators.email],
-      password:['', Validators.required],
     });
   }
 
   Ismodel(){
     return {
       email: this.signupForm.value.email ?? '',
-      password: this.signupForm.value.password ?? '',
     }
   }
   routForgt(){
@@ -52,6 +50,7 @@ export class LoginComponent implements OnInit{
     let model = this.Ismodel();
     this._auth.signIn(model).subscribe(res=>{
       if(res.state == true){
+        console.log(res)
         sessionStorage.setItem('userId', res.data.userId);
         sessionStorage.setItem('Name', res.data.name);
         sessionStorage.setItem('email', this.signupForm.value.email);
