@@ -86,7 +86,7 @@ export class VarifyComponent implements OnInit {
     this._auth.varify(model).subscribe(res=>{
       if(res.state==true){
         this.loader = false;
-        this._router.navigate(['/login']);
+        this._router.navigate(['/dashboard']);
       }else{
         this.loader = false;
         alert(res.message)

@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit{
 
   Init(){
     this.signupForm = this._fb.group({
-      otp:['', Validators.required],
+      email:['', Validators.required],
     });
   }
   Ismodel(){
@@ -51,16 +51,15 @@ export class LoginComponent implements OnInit{
     let model = this.Ismodel();
     this._auth.signIn(model).subscribe(res=>{
       if(res.state == true){
-        console.log(res)
+        this.loader = false;
+        sessionStorage.setItem('email', this.signupForm.value.email);
+        this._router.navigate(['/verify']);
         sessionStorage.setItem('userId', res.data.userId);
         sessionStorage.setItem('Name', res.data.name);
-        sessionStorage.setItem('email', this.signupForm.value.email);
         sessionStorage.setItem('password', this.signupForm.value.password);
         sessionStorage.setItem('token', res.token);
         sessionStorage.setItem('contact', res.data.contact);
         sessionStorage.setItem('expiryDate', res.data.expiryDate);
-        location.reload();
-        this.loader = false;
       }else{
         this.loader = false;
         alert(res.message);

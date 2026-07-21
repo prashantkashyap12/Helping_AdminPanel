@@ -19,7 +19,7 @@ export class AuthserviceService {
   }
   
   varify(model:any):Observable<any>{
-    let url = this.Url+"ForgetGen2";
+    let url = this.Url+"VerifyOTP";
     return this.http.post(url, model)
   }
 

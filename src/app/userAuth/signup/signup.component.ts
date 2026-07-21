@@ -52,15 +52,16 @@ export class SignupComponent implements OnInit{
       tdate: new Date(),
       name: this.userSignup.value.name ?? '',
       email: this.userSignup.value.email ?? '',
-      contact: this.userSignup.value.contact ?? '',
-      reffrence: this.userSignup.value.reffrence ?? '',
+      contact: (this.userSignup.value.contact ?? '').toString(),
+      reffrence: this.userSignup.value.reffrence ?? '654',
+      role: this.isAdmin ? 'user' : 'admin'
     };
   }
 
   onSubmit(){
     this.loader = true;
     const model= this.datamodel();  // validation
-    console.log(this.datamodel());
+    console.log(this.datamodel());  
     this._auth.signup(model).subscribe(
       res=>{ 
        if(res.state == true){
@@ -68,6 +69,7 @@ export class SignupComponent implements OnInit{
         sessionStorage.setItem('email', this.userSignup.value.email);
         sessionStorage.setItem('user', this.userSignup.value.name);
         sessionStorage.setItem('reffrence', this.userSignup.value.reffrence);
+        sessionStorage.setItem('role', this.userSignup.value.role);
         this._router.navigate(['/verify']);
        }else{
         this.loader = false;
