@@ -85,7 +85,10 @@ export class VarifyComponent implements OnInit {
     const model = this.datamodel();
     this._auth.varify(model).subscribe(res=>{
       if(res.state==true){
+        console.log(res.record.role);
         this.loader = false;
+        sessionStorage.setItem('role', res.record.role);
+        
         this._router.navigate(['/dashboard']);
       }else{
         this.loader = false;

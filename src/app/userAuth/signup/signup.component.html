@@ -27,9 +27,19 @@
                         <p class="font-medium text-gray-500 dark:text-dark-text mt-4">
                             Welcome! create on your account {{isAdmin?'as User"':'as Admin"'}}
                         </p>
-                        <button class="btn btn-primary-solid" (click)="isAdminBtn()">{{isAdmin?'Signup as Admin':'Signup as User'}}</button>
+                        <!-- <button class="btn btn-primary-solid" (click)="isAdminBtn()">{{isAdmin?'Signup as Admin':'Signup as User'}}</button> -->
                     </div>
                     <form *ngIf="userSignup" [formGroup]="userSignup" class="leading-none mt-8">
+                        <div class="mb-2.5">
+                            <label for="name" class="form-label">Select Team Leader</label>
+                            <select class="form-input form-select" style = "width: 100%;height: 47px;border-radius: 10px;border: 1px solid #c4c4c4;" (change)="data($event)">
+                                <option value="">Select Admin</option>
+                                <option *ngFor="let admin of addAdmin" [value]="admin.userId">
+                                    {{ admin.name }}
+                                </option>
+                            </select>
+                            <!-- <input type="text" id="name" formControlName="name" placeholder="Enter Full Name" required class="form-input px-4 py-3.5 rounded-lg"> -->
+                        </div>
                         <div class="mb-2.5">
                             <label for="name" class="form-label">Name</label>
                             <input type="text" id="name" formControlName="name" placeholder="Enter Full Name" required class="form-input px-4 py-3.5 rounded-lg">
@@ -52,7 +62,7 @@
                             }@else{
                                 <div class="mt-5" *ngIf="isAdmin">
                                     <label for="name" class="form-label">Reffrance Id</label>
-                                    <input type="text" id="name" formControlName="reffrence" placeholder="Enter Reffrence" maxlength="10" required class="form-input px-4 py-3.5 rounded-lg">
+                                    <input type="text" id="name" formControlName="reffrence" placeholder="Enter Reffrence" maxlength="10" [(ngModel)]="reffrenceId" required class="form-input px-4 py-3.5 rounded-lg">
                                 </div>
                             }
                             <div class="mt-5"></div>

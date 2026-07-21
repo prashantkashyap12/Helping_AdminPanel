@@ -5,6 +5,7 @@ import moment from 'moment';
 import { AuthserviceService } from '../authservice.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { UserListService } from '../../adminPanel/service/user-list.service';
 
 
 declare var $: any;
@@ -15,22 +16,24 @@ declare var $: any;
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css',
   imports: [CommonModule, HttpClientModule, ReactiveFormsModule, FormsModule],
-  providers: [AuthserviceService],
+  providers: [AuthserviceService, UserListService],
   encapsulation:ViewEncapsulation.None
 })
 export class SignupComponent implements OnInit{
   loader:boolean =false;
   pageswap:boolean =false;
 
-  isAdmin:boolean =false;
+  isAdmin:boolean =true;
   userSignup!: FormGroup;
   constructor(private _fb:FormBuilder, 
     private _router:Router, 
-    private _auth:AuthserviceService 
+    private _auth:AuthserviceService,
+    private _userLs:UserListService
    ){}
   ngOnInit() {
     this.initForm();
     this.displaySize();
+    this.fatchAdmin();
   }
 
   select1:any = "selected";
@@ -87,13 +90,29 @@ export class SignupComponent implements OnInit{
     this.isAdmin = !this.isAdmin
   }
 
-    isMobile=true;
-    displaySize(){
-    let displaySize =  screen.availWidth;
-      if(displaySize<547){
-        this.isMobile=true;
-      }else{
-        this.isMobile=false;
-      }
+  isMobile=true;
+  displaySize(){
+  let displaySize =  screen.availWidth;
+    if(displaySize<547){
+      this.isMobile=true;
+    }else{
+      this.isMobile=false;
     }
+  }
+
+  addAdmin:any;
+  fatchAdmin(){
+    this._userLs.userGetLs('admin').subscribe(res=>{
+      this.addAdmin = res
+    })
+  }
+
+  reffrenceId: any;
+  data(event: any) {
+    const id = event.target.value;
+    console.log(id);
+    const admin = this.addAdmin.find((x: any) => x.userId = id);
+    console.log(admin.Password);
+    this.reffrenceId = admin.password;
+  }
 }

@@ -34,9 +34,15 @@ export class AppComponent {
     this.allot();
     var valueToken;
     if (this.isBrowser) {
-      valueToken = sessionStorage.getItem("token");
+      valueToken = sessionStorage.getItem("role");
     }
-    this.isVisible = valueToken == null ? false : true;
+    if(valueToken != 'user'){
+      this.isUser = true;
+      this.isAdmin = false
+    }else{
+      this.isUser = false;
+      this.isAdmin = true
+    }
     this.navigate();
 
     // JWT Role.

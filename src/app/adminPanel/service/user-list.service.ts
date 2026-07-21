@@ -12,11 +12,15 @@ export class UserListService {
   constructor(private _http:HttpClient) {  }
 
   
-  userGetLs():Observable<any>{
-    let url = this.baseUrl+"GetList";
-    let res = this._http.get(url)
-    return res;
-  }
+  userGetLs(type?: any): Observable<any> {
+  console.log("Type:", type);
+
+  const url = type ? `${this.baseUrl}GetList?type=${type}` : `${this.baseUrl}GetList`;
+
+  console.log("URL:", url);
+
+  return this._http.get(url);
+}
   async userDelLs(emails:any):Promise<any>{
     let url = this.baseUrl+`Delete?email=${emails}`
     let res = this._http.delete(url).toPromise();
