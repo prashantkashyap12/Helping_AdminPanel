@@ -24,12 +24,16 @@ import { UserPermissionsComponent } from './adminPanel/user-permissions/user-per
 import { EventManagerComponent } from './adminPanel/event-manager/event-manager.component';
 import { PaymentAckListComponent } from './adminPanel/payment-ack-list/payment-ack-list.component';
 import { OurMembersComponent } from './UserPanel/our-members/our-members.component';
+import { AppComponent } from './app.component';
 
 export const routes: Routes = [
 
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   
+  {path:'', component:DashboardComponent},
   {path:'dashboard', component:DashboardComponent},
+
+    {path:'app', component:AppComponent},
 
     // Done
     {path:'login', component:LoginComponent},

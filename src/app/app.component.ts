@@ -25,6 +25,7 @@ export class AppComponent {
   isDoc:boolean= false
   isUser:boolean = false;
   isAdmin:boolean = false;
+  isSuperAdmin:boolean = false;
   
   constructor(private _router:Router, private _profileView:UserprofileService, private _common:CommonService){}
   duration:any;
@@ -34,16 +35,11 @@ export class AppComponent {
     this.allot();
     var valueToken;
     if (this.isBrowser) {
-      valueToken = sessionStorage.getItem("role");
+      valueToken = sessionStorage.getItem("role")??"";
+      console.log(valueToken);
     }
-    if(valueToken != 'user'){
-      this.isUser = true;
-      this.isAdmin = false
-    }else{
-      this.isUser = false;
-      this.isAdmin = true
-    }
-    this.navigate();
+    this.navigate(valueToken);
+    
 
     // JWT Role.
     if(valueToken){
@@ -73,11 +69,24 @@ export class AppComponent {
     }
   }
 
-  navigate(){
-    if(this.isVisible){
+  navigate(valueToken:any){
+    if(valueToken!=""){
       this._router.navigate(['/dashboard']);
+      if(valueToken != 'user'){
+        this.isUser = true;
+        this.isAdmin = false
+      }
+      else if(valueToken == 'superadmin'){
+        alert("Welcome super admin, Add Admin, Add Event, Doc Approved")
+      }
+      else{
+        this.isUser = false;
+        this.isAdmin = true
+      }
     }else{
       this._router.navigate(['/signup']);
+      this.isVisible =false
+
     }
   }
   logout(){
