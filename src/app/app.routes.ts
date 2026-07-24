@@ -25,6 +25,7 @@ import { EventManagerComponent } from './adminPanel/event-manager/event-manager.
 import { PaymentAckListComponent } from './adminPanel/payment-ack-list/payment-ack-list.component';
 import { OurMembersComponent } from './UserPanel/our-members/our-members.component';
 import { AppComponent } from './app.component';
+import { AdminAddUserComponent } from './SuperAdmin/admin-add-user/admin-add-user.component';
 
 export const routes: Routes = [
 
@@ -59,6 +60,8 @@ export const routes: Routes = [
     {path:'UserList', component:UserListComponent},
     {path:'userPermission', component:UserPermissionsComponent},
     {path:'AddEventManager', component:EventManagerComponent},
+    {path:'AddAdmin', component:AdminAddUserComponent},
+
     
     // User - working
     {path:'ProfileUpdate',component:ProfileCompleteComponent},

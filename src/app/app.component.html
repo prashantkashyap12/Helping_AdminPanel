@@ -75,7 +75,7 @@
             <div class="w-[1px] h-[calc(theme('spacing.header')_-_10px)] sm:h-header bg-[#EEE] dark:bg-dark-border hidden sm:block"></div>
             <div class="relative">
                 <button type="button" data-popover-target="dropdownProfile" data-popover-trigger="click" data-popover-placement="bottom-end" class="text-gray-500 dark:text-dark-text flex items-center gap-2 sm:pr-4 relative after:absolute after:right-0 after:font-remix after:content-['\ea4e'] after:text-[18px] after:hidden sm:after:block">
-                    <img [src]="user.profileImg" alt="user-img" class="size-7 sm:size-9 rounded-50 dk-theme-card-square">
+                    <img src="../assets/images/profile/profile.png" alt="user-img" class="size-7 sm:size-9 rounded-50 dk-theme-card-square">
                     <span class="font-semibold leading-none text-lg capitalize hidden sm:block"></span>
                 </button>
                 <div id="dropdownProfile" class="invisible z-backdrop bg-white text-left divide-y divide-gray-100 rounded-lg shadow w-48 dark:bg-dark-card-shade dark:divide-dark-border-four">
@@ -239,10 +239,10 @@
             </ul>
             <ul *ngIf="isAdmin">            
                 <li class="!mt-5 pt-5 border-t border-gray-200 dark:border-dark-border-two mx-4 group-data-[sidebar-size=sm]:hidden">
-                    <h5 class="text-heading text-lg leading-none font-semibold mb-5">Admin Panel</h5>
+                    <h5 class="text-heading text-lg leading-none font-semibold mb-5">User Panel</h5>
                 </li>
                 <li class="relative group/sm w-full group-data-[sidebar-size=sm]:hover:w-[calc(theme('spacing.app-menu-sm')_*_3.4)] group-data-[sidebar-size=sm]:flex-center">
-                    <a routerLink="/userPermission" class="relative text-gray-500 dark:text-dark-text-two font-medium leading-none px-3.5 py-3 h-[42px] flex items-center group/menu-link ac-transition peer/dp-btn group-data-[sidebar-size=sm]:bg-gray-100 dark:group-data-[sidebar-size=sm]:bg-dark-icon group-data-[sidebar-size=sm]:hover:bg-primary-500/95 group-data-[sidebar-size=sm]:[&.active]:bg-primary-500/95 hover:text-white [&.active]:text-white hover:!bg-primary-500/95 [&.active]:bg-primary-500/95 group-data-[sidebar-size=sm]:rounded-lg group-data-[sidebar-size=sm]:group-hover/sm:!rounded-br-none group-data-[sidebar-size=lg]:rounded-l-full group-data-[sidebar-size=sm]:p-3 group-data-[sidebar-size=sm]:w-full">
+                    <a routerLink="/OurTeam" class="relative text-gray-500 dark:text-dark-text-two font-medium leading-none px-3.5 py-3 h-[42px] flex items-center group/menu-link ac-transition peer/dp-btn group-data-[sidebar-size=sm]:bg-gray-100 dark:group-data-[sidebar-size=sm]:bg-dark-icon group-data-[sidebar-size=sm]:hover:bg-primary-500/95 group-data-[sidebar-size=sm]:[&.active]:bg-primary-500/95 hover:text-white [&.active]:text-white hover:!bg-primary-500/95 [&.active]:bg-primary-500/95 group-data-[sidebar-size=sm]:rounded-lg group-data-[sidebar-size=sm]:group-hover/sm:!rounded-br-none group-data-[sidebar-size=lg]:rounded-l-full group-data-[sidebar-size=sm]:p-3 group-data-[sidebar-size=sm]:w-full">
                         <span class="shrink-0 group-data-[sidebar-size=sm]:w-[calc(theme('spacing.app-menu-sm')_*_0.43)] group-data-[sidebar-size=sm]:flex-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="19" viewBox="0 0 16 19" fill="none">
                                 <path d="M15.2727 4.36363V14.5454C15.2727 14.7383 15.1961 14.9233 15.0597 15.0597C14.9233 15.1961 14.7383 15.2727 14.5454 15.2727H12.3636V7.27272L8.72726 3.63636H3.63635V1.45454C3.63635 1.26165 3.71298 1.07667 3.84937 0.940278C3.98576 0.803888 4.17074 0.727264 4.36363 0.727264H11.6364L15.2727 4.36363Z" fill="#EEEEEE" class="group-hover/menu-link:fill-[url(#g_18)] group-[.active]/menu-link:fill-[url(#g_18)] dark:fill-none"/>
@@ -262,12 +262,13 @@
                     </a>
                 </li>
             </ul>
-            <ul *ngIf="isSuperAdmin">            
+            <ul >             
+                <!-- *ngIf="isSuperAdmin" -->
                 <li class="!mt-5 pt-5 border-t border-gray-200 dark:border-dark-border-two mx-4 group-data-[sidebar-size=sm]:hidden">
                     <h5 class="text-heading text-lg leading-none font-semibold mb-5">Super Admin Panel</h5>
                 </li>
                 <li class="relative group/sm w-full group-data-[sidebar-size=sm]:hover:w-[calc(theme('spacing.app-menu-sm')_*_3.4)] group-data-[sidebar-size=sm]:flex-center">
-                    <a routerLink="/userPermission" class="relative text-gray-500 dark:text-dark-text-two font-medium leading-none px-3.5 py-3 h-[42px] flex items-center group/menu-link ac-transition peer/dp-btn group-data-[sidebar-size=sm]:bg-gray-100 dark:group-data-[sidebar-size=sm]:bg-dark-icon group-data-[sidebar-size=sm]:hover:bg-primary-500/95 group-data-[sidebar-size=sm]:[&.active]:bg-primary-500/95 hover:text-white [&.active]:text-white hover:!bg-primary-500/95 [&.active]:bg-primary-500/95 group-data-[sidebar-size=sm]:rounded-lg group-data-[sidebar-size=sm]:group-hover/sm:!rounded-br-none group-data-[sidebar-size=lg]:rounded-l-full group-data-[sidebar-size=sm]:p-3 group-data-[sidebar-size=sm]:w-full">
+                    <a routerLink="/AddAdmin" class="relative text-gray-500 dark:text-dark-text-two font-medium leading-none px-3.5 py-3 h-[42px] flex items-center group/menu-link ac-transition peer/dp-btn group-data-[sidebar-size=sm]:bg-gray-100 dark:group-data-[sidebar-size=sm]:bg-dark-icon group-data-[sidebar-size=sm]:hover:bg-primary-500/95 group-data-[sidebar-size=sm]:[&.active]:bg-primary-500/95 hover:text-white [&.active]:text-white hover:!bg-primary-500/95 [&.active]:bg-primary-500/95 group-data-[sidebar-size=sm]:rounded-lg group-data-[sidebar-size=sm]:group-hover/sm:!rounded-br-none group-data-[sidebar-size=lg]:rounded-l-full group-data-[sidebar-size=sm]:p-3 group-data-[sidebar-size=sm]:w-full">
                         <span class="shrink-0 group-data-[sidebar-size=sm]:w-[calc(theme('spacing.app-menu-sm')_*_0.43)] group-data-[sidebar-size=sm]:flex-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="19" viewBox="0 0 16 19" fill="none">
                                 <path d="M15.2727 4.36363V14.5454C15.2727 14.7383 15.1961 14.9233 15.0597 15.0597C14.9233 15.1961 14.7383 15.2727 14.5454 15.2727H12.3636V7.27272L8.72726 3.63636H3.63635V1.45454C3.63635 1.26165 3.71298 1.07667 3.84937 0.940278C3.98576 0.803888 4.17074 0.727264 4.36363 0.727264H11.6364L15.2727 4.36363Z" fill="#EEEEEE" class="group-hover/menu-link:fill-[url(#g_18)] group-[.active]/menu-link:fill-[url(#g_18)] dark:fill-none"/>
@@ -283,26 +284,6 @@
                         </span>
                         <span class="group-data-[sidebar-size=sm]:hidden group-data-[sidebar-size=sm]:ml-6 group-data-[sidebar-size=sm]:group-hover/sm:block ml-3 shrink-0">
                             Add Admin (Team Leader)
-                        </span>
-                    </a>
-                </li>
-                <li class="relative group/sm w-full group-data-[sidebar-size=sm]:hover:w-[calc(theme('spacing.app-menu-sm')_*_3.4)] group-data-[sidebar-size=sm]:flex-center">
-                    <a routerLink="/userPermission" class="relative text-gray-500 dark:text-dark-text-two font-medium leading-none px-3.5 py-3 h-[42px] flex items-center group/menu-link ac-transition peer/dp-btn group-data-[sidebar-size=sm]:bg-gray-100 dark:group-data-[sidebar-size=sm]:bg-dark-icon group-data-[sidebar-size=sm]:hover:bg-primary-500/95 group-data-[sidebar-size=sm]:[&.active]:bg-primary-500/95 hover:text-white [&.active]:text-white hover:!bg-primary-500/95 [&.active]:bg-primary-500/95 group-data-[sidebar-size=sm]:rounded-lg group-data-[sidebar-size=sm]:group-hover/sm:!rounded-br-none group-data-[sidebar-size=lg]:rounded-l-full group-data-[sidebar-size=sm]:p-3 group-data-[sidebar-size=sm]:w-full">
-                        <span class="shrink-0 group-data-[sidebar-size=sm]:w-[calc(theme('spacing.app-menu-sm')_*_0.43)] group-data-[sidebar-size=sm]:flex-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="19" viewBox="0 0 16 19" fill="none">
-                                <path d="M15.2727 4.36363V14.5454C15.2727 14.7383 15.1961 14.9233 15.0597 15.0597C14.9233 15.1961 14.7383 15.2727 14.5454 15.2727H12.3636V7.27272L8.72726 3.63636H3.63635V1.45454C3.63635 1.26165 3.71298 1.07667 3.84937 0.940278C3.98576 0.803888 4.17074 0.727264 4.36363 0.727264H11.6364L15.2727 4.36363Z" fill="#EEEEEE" class="group-hover/menu-link:fill-[url(#g_18)] group-[.active]/menu-link:fill-[url(#g_18)] dark:fill-none"/>
-                                <path d="M15.7873 3.84909L12.1509 0.212727C12.0833 0.145212 12.0031 0.0916742 11.9148 0.0551737C11.8265 0.0186733 11.7319 -7.48988e-05 11.6364 2.24872e-07H4.36364C3.97787 2.24872e-07 3.6079 0.153246 3.33512 0.426027C3.06234 0.698807 2.90909 1.06878 2.90909 1.45455V2.90909H1.45455C1.06878 2.90909 0.698807 3.06234 0.426026 3.33512C0.153246 3.6079 0 3.97787 0 4.36364V17.4545C0 17.8403 0.153246 18.2103 0.426026 18.4831C0.698807 18.7558 1.06878 18.9091 1.45455 18.9091H11.6364C12.0221 18.9091 12.3921 18.7558 12.6649 18.4831C12.9377 18.2103 13.0909 17.8403 13.0909 17.4545V16H14.5455C14.9312 16 15.3012 15.8468 15.574 15.574C15.8468 15.3012 16 14.9312 16 14.5455V4.36364C16.0001 4.2681 15.9813 4.17349 15.9448 4.0852C15.9083 3.99691 15.8548 3.91668 15.7873 3.84909ZM11.6364 17.4545H1.45455V4.36364H8.42636L11.6364 7.57364V15.2582C11.6364 15.2636 11.6364 15.2682 11.6364 15.2727C11.6364 15.2773 11.6364 15.2818 11.6364 15.2873V17.4545ZM14.5455 14.5455H13.0909V7.27273C13.091 7.17719 13.0722 7.08258 13.0357 6.99429C12.9992 6.906 12.9457 6.82577 12.8782 6.75818L9.24182 3.12182C9.17423 3.0543 9.094 3.00076 9.00571 2.96426C8.91742 2.92776 8.82281 2.90902 8.72727 2.90909H4.36364V1.45455H11.3355L14.5455 4.66455V14.5455ZM9.45455 11.6364C9.45455 11.8292 9.37792 12.0142 9.24153 12.1506C9.10514 12.287 8.92016 12.3636 8.72727 12.3636H4.36364C4.17075 12.3636 3.98577 12.287 3.84938 12.1506C3.71299 12.0142 3.63636 11.8292 3.63636 11.6364C3.63636 11.4435 3.71299 11.2585 3.84938 11.1221C3.98577 10.9857 4.17075 10.9091 4.36364 10.9091H8.72727C8.92016 10.9091 9.10514 10.9857 9.24153 11.1221C9.37792 11.2585 9.45455 11.4435 9.45455 11.6364ZM9.45455 14.5455C9.45455 14.7383 9.37792 14.9233 9.24153 15.0597C9.10514 15.1961 8.92016 15.2727 8.72727 15.2727H4.36364C4.17075 15.2727 3.98577 15.1961 3.84938 15.0597C3.71299 14.9233 3.63636 14.7383 3.63636 14.5455C3.63636 14.3526 3.71299 14.1676 3.84938 14.0312C3.98577 13.8948 4.17075 13.8182 4.36364 13.8182H8.72727C8.92016 13.8182 9.10514 13.8948 9.24153 14.0312C9.37792 14.1676 9.45455 14.3526 9.45455 14.5455Z" fill="#999999" class="group-hover/menu-link:fill-white group-[.active]/menu-link:fill-white"/>
-                                <defs>
-                                    <linearGradient id="g_18" x1="2.18655" y1="3.46529" x2="8.18057" y2="12.9769" gradientUnits="userSpaceOnUse">
-                                        <stop offset="0" stop-color="#795DED"/>
-                                        <stop offset="0.0001" stop-color="#7D5DFE"/>
-                                        <stop offset="1" stop-color="#76D466"/>
-                                    </linearGradient>
-                                </defs>
-                            </svg>
-                        </span>
-                        <span class="group-data-[sidebar-size=sm]:hidden group-data-[sidebar-size=sm]:ml-6 group-data-[sidebar-size=sm]:group-hover/sm:block ml-3 shrink-0">
-                            Set Permission
                         </span>
                     </a>
                 </li>

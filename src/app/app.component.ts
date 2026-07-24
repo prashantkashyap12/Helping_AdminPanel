@@ -36,7 +36,6 @@ export class AppComponent {
     var valueToken;
     if (this.isBrowser) {
       valueToken = sessionStorage.getItem("role")??"";
-      console.log(valueToken);
     }
     this.navigate(valueToken);
     
@@ -84,7 +83,7 @@ export class AppComponent {
         this.isAdmin = true
       }
     }else{
-      this._router.navigate(['/signup']);
+      this._router.navigate(['/login']);
       this.isVisible =false
 
     }
@@ -99,6 +98,7 @@ export class AppComponent {
     email:'',
     profileImg:''
   }
+  userpro:any;
   allot(){
     this._profileView.GetUser(sessionStorage.getItem('userId')).subscribe(res=>{
       let resp = res.results[0];
@@ -108,6 +108,7 @@ export class AppComponent {
         email:resp.Email,
         profileImg: resp.ProfileImg!= null?`${this.baseurl}${resp.ProfileImg}`:'../assets/images/user/profile.jpg'
       }
+      // this.userpro=this.user.profileImg ?? ''
       this._common.dashUser.next(resp.Name);  // data set / binding with subject
     })
   }

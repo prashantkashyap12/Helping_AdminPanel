@@ -73,6 +73,8 @@ export class SignupComponent implements OnInit{
         sessionStorage.setItem('user', this.userSignup.value.name);
         sessionStorage.setItem('reffrence', this.userSignup.value.reffrence);
         sessionStorage.setItem('role', this.userSignup.value.role);
+        sessionStorage.setItem('userId', this.userSignup.value.userId);
+
         this._router.navigate(['/verify']);
        }else{
         this.loader = false;

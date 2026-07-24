@@ -27,9 +27,9 @@ loader:boolean = false;
   }
   record(){
     this._usrcommon.getRecord().subscribe(res=>{
-      this.data = res.results;
-      // this.data = this.eventRec.find((a:any)=> a.userId == sessionStorage.getItem('userId'));
-      console.log(this.eventRec)
+      let data = res.results;
+      this.data = data.filter((a:any)=>a.password == sessionStorage.getItem('password'));
+      console.log(this.data);
     })
   }
   selectEvent(data:any){}

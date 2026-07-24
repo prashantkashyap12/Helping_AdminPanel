@@ -17,11 +17,11 @@
             <!-- Start Form Area -->
             <div class="col-span-full lg:col-span-6 w-full lg:max-w-[600px]">
                 <div class="border border-form dark:border-dark-border p-5 md:p-10 rounded-20 md:rounded-30 dk-theme-card-square">
-                    <h3 class="text-xl md:text-[28px] leading-none font-semibold text-heading">
+                    <h2 class="text-xl md:text-[28px] leading-none font-semibold text-heading">
                         Sign In
-                    </h3>
+                    </h2>
                     <p class="font-medium text-gray-500 dark:text-dark-text mt-4">
-                        Welcome Back! Log in to your account 
+                        Welcome Back! Log in to your "Helping Hand Account"  
                     </p>
                     <form [formGroup]="signupForm" *ngIf="signupForm" class="leading-none mt-8">
                         <div class="mb-2.5">
@@ -32,7 +32,7 @@
                     </form>
                     <div class="font-spline_sans text-gray-900 dark:text-dark-text leading-none text-center my-4">OR</div>
                     <div class="text-gray-900 dark:text-dark-text font-medium leading-none mt-5">
-                        Don’t have an account yet?
+                        Don’t have an account?
                         <a (click)="signup()" class="text-primary-500 font-semibold">Sign Up</a>
                     </div>
                 </div>

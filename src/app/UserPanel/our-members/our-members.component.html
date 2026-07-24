@@ -7,53 +7,18 @@
 
     <!-- Start Main Content -->
     <div class="main-content group-data-[sidebar-size=lg]:xl:ml-[calc(theme('spacing.app-menu')_+_16px)] group-data-[sidebar-size=sm]:xl:ml-[calc(theme('spacing.app-menu-sm')_+_16px)] group-data-[theme-width=box]:xl:px-0 px-3 xl:px-4 ac-transition">
-        <!-- <div class="card">
-            <div style="display: flex;justify-content: space-between;align-items: center;">
-                <h2 class="card-title">Search  List</h2>
-                <div class="ng-autocomplete" >
-                    <ng-autocomplete 
-                    [data]="data"
-                    [searchKeyword]="keyword"
-                    placeholder="Find Save Record..."
-                    (selected)='selectEvent($event)'
-                    [itemTemplate]="itemTemplate"
-                    [notFoundTemplate]="notFoundTemplate">                                 
-                    </ng-autocomplete>
-                    <ng-template #itemTemplate let-item>
-                    <a [innerHTML]="item.linkText1">{{item.heading}}</a>
-                    </ng-template>
-                    <ng-template #notFoundTemplate let-notFound>
-                    <div [innerHTML]="notFound"></div>
-                    </ng-template>
-                </div>
-            </div>
-        </div> -->
         <div class="grid grid-cols-12 gap-x-4">
             <div class="col-span-full">
                 <div class="card p-0">
-                    <div class="flex-center-between p-6 pb-4 border-b border-gray-200 dark:border-dark-border">
-                        <h3 class="text-lg card-title leading-none">Our Member List</h3>
+                    <div class="flex-center-between p-6 pb-0 border-b border-gray-200 dark:border-dark-border">
+                        <h2 class="text-lg card-title leading-none">Our Member List</h2>
                     </div>
                     <div class="grid grid-cols-12">
                         <div class="col-span-full">
                             <div class="card p-0">
                                 <div class="p-6">
-                                    <div class="flex-center-between">
-                                        <div class="flex items-center gap-5">
-                                            <form class="max-w-80 relative">
-                                                <span class="absolute top-1/2 -translate-y-[40%] left-2.5">
-                                                    <i class="ri-search-line text-gray-900 dark:text-dark-text text-[14px]"></i>
-                                                </span>
-                                                <input type="text" placeholder="Search for..." class="form-input pl-[30px]">
-                                            </form>
-                                            <button type="button" class="font-spline_sans text-sm px-1 text-gray-900 dark:text-dark-text flex-center gap-1.5" (click)="record()">
-                                                <i class="ri-loop-right-line text-inherit text-sm"></i>
-                                                <span>Refresh</span>
-                                            </button>
-                                        </div>
-                                    </div>
                                     <!-- START INFORMATION TABLE -->
-                                    <div class="overflow-x-auto mt-5">
+                                    <div class="overflow-x-auto ">
                                         <table class="table-auto border-collapse w-full whitespace-nowrap text-left text-gray-500 dark:text-dark-text font-medium">
                                             <thead>
                                                 <tr>
@@ -76,7 +41,7 @@
                                                     <td class="p-6 py-4 dk-border-one">{{team.Contact | userRec: 'phone'}}</td>
                                                     <!-- <td class="p-6 py-4 dk-border-one">{{team.password}}</td> -->
                                                     <!-- <td class="p-6 py-4 dk-border-one">{{team.otp}}</td> -->
-                                                    <td class="p-6 py-4 dk-border-one">{{team.designation}}</td>
+                                                    <td class="p-6 py-4 dk-border-one">{{team.designation??"N/A"}}</td>
                                                     <td class="p-6 py-4 dk-border-one">{{team.IsVerified}}</td>
                                                     <!-- <td class="p-6 py-4 dk-border-one">
                                                         <div class="flex items-center gap-2"> -->

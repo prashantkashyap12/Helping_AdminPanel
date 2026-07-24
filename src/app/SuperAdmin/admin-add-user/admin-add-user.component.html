@@ -1,4 +1,19 @@
-<form *ngIf="userSignup" [formGroup]="userSignup" class="leading-none mt-8">
+
+
+   <!-- loader -->
+    <div *ngIf="loader" class="w-screen h-screen flex-center bg-white dark:bg-dark-card fixed inset-0 z-[9999]">
+        <img src="assets/pre-loader/bar-loader.gif" alt="loader">
+    </div>
+    <!-- loader -->
+
+    <div class="main-content group-data-[sidebar-size=lg]:xl:ml-[calc(theme('spacing.app-menu')_+_16px)] group-data-[sidebar-size=sm]:xl:ml-[calc(theme('spacing.app-menu-sm')_+_16px)] group-data-[theme-width=box]:xl:px-0 px-3 xl:px-4 ac-transition">
+        <div class="card">
+            <h2 class="card-title">Add Admin </h2>
+        </div>
+        <div class="grid grid-cols-12">
+            <div class="col-span-full">
+                <div class="card p-0">
+                    <form *ngIf="true" [formGroup]="userSignup" class="leading-none mt-8">
                         <div class="mb-2.5">
                             <label for="name" class="form-label">Select Team Leader</label>
                             <input type="text" id="name" formControlName="name" placeholder="Enter Full Name" required class="form-input px-4 py-3.5 rounded-lg">
@@ -21,3 +36,24 @@
                         </div>
                         <button (click)="onSubmit()" [disabled]="!model()" class="btn b-solid btn-primary-solid w-full dk-theme-card-square">Sign Up</button>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    

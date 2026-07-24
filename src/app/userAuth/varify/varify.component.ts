@@ -88,7 +88,11 @@ export class VarifyComponent implements OnInit {
         console.log(res.record.role);
         this.loader = false;
         sessionStorage.setItem('role', res.record.role);
-        this._router.navigate(['/app']);
+        sessionStorage.setItem('expiryDate', res.record.expiryDate);
+        sessionStorage.setItem('contact', res.record.contact);
+        sessionStorage.setItem('user', res.record.name);
+        sessionStorage.setItem('password', res.record.password);
+        window.location.reload();
       }else{
         this.loader = false;
         alert(res.message)
