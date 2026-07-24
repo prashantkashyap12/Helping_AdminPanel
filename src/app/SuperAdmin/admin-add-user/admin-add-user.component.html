@@ -1,0 +1,23 @@
+<form *ngIf="userSignup" [formGroup]="userSignup" class="leading-none mt-8">
+                        <div class="mb-2.5">
+                            <label for="name" class="form-label">Select Team Leader</label>
+                            <input type="text" id="name" formControlName="name" placeholder="Enter Full Name" required class="form-input px-4 py-3.5 rounded-lg">
+                        </div>
+                        <div class="mb-2.5">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" id="name" formControlName="name" placeholder="Enter Full Name" required class="form-input px-4 py-3.5 rounded-lg">
+                        </div>
+                        <div class="mt-5">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" formControlName="email" placeholder="Email" required class="form-input px-4 py-3.5 rounded-lg">
+                        </div>
+                        <div *ngIf="userSignup.get('email')?.touched && userSignup.get('email')?.invalid" class="text-red-500 text-sm mt-1">
+                            <div *ngIf="userSignup.get('email')?.errors?.['required']">Email is required.</div>
+                            <div *ngIf="userSignup.get('email')?.errors?.['email']">Please enter a valid email address.</div>
+                        </div>
+                        <div class="mt-5">
+                            <label for="name" class="form-label">Contact</label>
+                            <input type="number" id="name" formControlName="contact" placeholder="Enter Contact" maxlength="13" required class="form-input px-4 py-3.5 rounded-lg">
+                        </div>
+                        <button (click)="onSubmit()" [disabled]="!model()" class="btn b-solid btn-primary-solid w-full dk-theme-card-square">Sign Up</button>
+                    </form>
